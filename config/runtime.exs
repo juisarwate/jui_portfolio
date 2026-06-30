@@ -21,6 +21,11 @@ if System.get_env("PHX_SERVER") do
 end
 
 config :portfolio, PortfolioWeb.Endpoint,
+  check_origin: [
+    "https://www.sarwate.com",
+    # "https://#{System.get_env("APP_NAME")}.gigalixirapp.com"
+    "https://juiportfolio.gigalixirapp.com"
+  ],
   http: [port: String.to_integer(System.get_env("PORT", "4000"))]
 
 if config_env() == :prod do
