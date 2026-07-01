@@ -8,4 +8,8 @@ defmodule PortfolioWeb.PageController do
   def about(conn, _params) do
     render(conn, :about)
   end
+
+  def clips(conn, _params) do
+    render(conn, :clips)
+  end
 end
