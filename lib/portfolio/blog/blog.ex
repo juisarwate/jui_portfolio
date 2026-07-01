@@ -17,7 +17,9 @@ defmodule Portfolio.Blog do
   # And finally export them
   def all_posts, do: @posts
   def all_tags, do: @tags
-  def recent_posts(num \\ 5), do: Enum.take(all_posts(), num)
+  def published_posts, do: Enum.filter(all_posts(), &(&1.published == true))
+  # PREVIOUSLY DONE # def recent_posts(num \\ 5), do: Enum.take(all_posts(), num)
+  def recent_posts(num \\ 5), do: Enum.take(published_posts(), num)
   defmodule NotFoundError, do: defexception([:message, plug_status: 404])
 
   def get_post_by_id!(id) do
